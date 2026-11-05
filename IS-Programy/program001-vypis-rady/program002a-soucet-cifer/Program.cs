@@ -7,34 +7,36 @@ class Program
         Console.Write("Zadejte celé číslo: ");
         string input = Console.ReadLine();
 
-        // Ošetření neplatného vstupu
-        if (int.TryParse(input, out int number))
+        // Ošetření záporného znaménka a neplatných znaků
+        input = input.Trim();
+        if (input.StartsWith("-"))
         {
-            // Převod na absolutní hodnotu pro případ záporného čísla
-            number = Math.Abs(number);
+            input = input.Substring(1); // Odstraní záporné znaménko '-'
+        }
 
-            int sum = 0;
-            int product = 1;
+        int sum = 0;
+        int product = 1;
+        bool isValid = input.Length > 0; // Kontrola, zda nezůstal prázdný řetězec
 
-            // Speciální případ, pokud uživatel zadá rovnou nulu
-            if (number == 0)
+        // Projdeme všechny znaky v textu jeden po druhém
+        foreach (char c in input)
+        {
+            // Převod znaku '0'-'9' na jeho číselnou hodnotu
+            if (char.IsDigit(c))
             {
-                product = 0;
+                int digit = c - '0'; // Příklad: '5' - '0' = 5
+                sum += digit;
+                product *= digit;
             }
             else
             {
-                // Zpracování cifer pomocí matematiky
-                while (number > 0)
-                {
-                    int digit = number % 10; // Získá poslední cifru (např. z 123 udělá 3)
-                    sum += digit;            // Přičte cifru k celkovému součtu
-                    product *= digit;        // Vynásobí cifru s celkovým součinem
-                    number /= 10;            // Odstraní poslední cifru (např. z 123 udělá 12)
-                }
+                isValid = false;
+                break;
             }
+        }
 
-            // 5. výpis výsledků
-            Console.WriteLine($"Součet cifer: {number}");
+        if (isValid)
+        {
             Console.WriteLine($"Součet cifer: {sum}");
             Console.WriteLine($"Součin cifer: {product}");
         }
