@@ -33,6 +33,8 @@ class Program
                 }
             }
 
+            // 5. výpis výsledků
+            Console.WriteLine($"Součet cifer: {number}");
             Console.WriteLine($"Součet cifer: {sum}");
             Console.WriteLine($"Součin cifer: {product}");
         }
