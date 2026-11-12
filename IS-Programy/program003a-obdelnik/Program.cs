@@ -33,16 +33,28 @@ class Program
 
             // Vykreslení obdélníku / čtverce pomocí vnořených cyklů
             // Vnější cyklus řídí řádky (výšku b)
+            // Vykreslení obdélníku se střídáním barev po řádcích
             for (int i = 0; i < b; i++)
             {
-                // Vnitřní cyklus řídí sloupce na daném řádku (šířku a)
+                // Sudý řádek bude modrý, lichý žlutý
+                if (i % 2 == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                }
+
                 for (int j = 0; j < a; j++)
                 {
-                    Console.Write("* "); // Mezera za hvězdičkou zajistí, že čtverec vypadá jako čtverec
+                    Console.Write("* ");
                 }
-                // Po vypsání celého řádku odřádkujeme
                 Console.WriteLine();
             }
+
+// DŮLEŽITÉ: Vrácení barvy zpět na výchozí, aby nebyl obarvený i zbytek textu v konzoli
+Console.ResetColor();
 
             Console.WriteLine();
             Console.WriteLine("Pro opakování programu stiskněte klávesu 'a'.");
