@@ -76,7 +76,6 @@ namespace program000b_generator
                         nulova++;
                     }
 
-                    // Určení sudého nebo lichého čísla (pomocí zbytku po dělení 2)
                     if (myArray[i] % 2 == 0)
                     {
                         suda++;
