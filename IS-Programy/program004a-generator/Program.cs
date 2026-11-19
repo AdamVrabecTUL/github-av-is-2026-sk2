@@ -13,7 +13,10 @@ namespace program000b_generator
                 Console.WriteLine("*************************************************");
                 Console.WriteLine("***** Generátor pseudonáhodných čísel *****");
                 Console.WriteLine("*************************************************");
-                Console.WriteLine();
+                Console.WriteLine("******************************************");
+                Console.WriteLine("************** Adam Vrabec ***************");
+                Console.WriteLine("******************************************");
+                Console.WriteLine("******************************************");
 
                 // Vstup od uživatele s ošetřením
                 Console.Write("Zadejte počet generovaných čísel (n): ");
