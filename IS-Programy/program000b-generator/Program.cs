@@ -39,6 +39,63 @@ namespace program000b_generator
                 {
                     Console.Write("Nezadali jste celé číslo nebo je menší než lowerBound. Zadejte upperBound znovu: ");
                 }
+                Console.WriteLine();
+                Console.WriteLine("=================================================");
+                Console.WriteLine($"n = {n}");
+                Console.WriteLine($"lowerBound = {lowerBound}");
+                Console.WriteLine($"upperBound = {upperBound}");
+                Console.WriteLine("=================================================");
+
+                // Deklarace pole a generátoru
+                int[] myArray = new int[n];
+                Random randomNumber = new Random();
+
+                // Počítadla pro sledované vlastnosti
+                int kladna = 0;
+                int zaporna = 0;
+                int nulova = 0;
+                int suda = 0;
+                int licha = 0;
+
+                Console.WriteLine("\nNáhodná čísla:");
+                for (int i = 0; i < n; i++)
+                {
+                    myArray[i] = randomNumber.Next(lowerBound, upperBound + 1);
+                    Console.Write($"{myArray[i]}; ");
+
+                    if (myArray[i] > 0)
+                    {
+                        kladna++;
+                    }
+                    else if (myArray[i] < 0)
+                    {
+                        zaporna++;
+                    }
+                    else
+                    {
+                        nulova++;
+                    }
+
+                    // Určení sudého nebo lichého čísla (pomocí zbytku po dělení 2)
+                    if (myArray[i] % 2 == 0)
+                    {
+                        suda++;
+                    }
+                    else
+                    {
+                        licha++;
+                    }
+                }
+                Console.WriteLine("\n");
+                Console.WriteLine($"Počet kladných čísel: {kladna}");
+                Console.WriteLine($"Počet záporných čísel: {zaporna}");
+                Console.WriteLine($"Počet nulových čísel: {nulova}");
+                Console.WriteLine();
+                Console.WriteLine($"Počet sudých čísel: {suda}");
+                Console.WriteLine($"Počet lichých čísel: {licha}");
+
+                Console.WriteLine("\nPro opakování programu stiskněte klávesu 'a'.");
+                again = Console.ReadLine();
             }
         }
     }
